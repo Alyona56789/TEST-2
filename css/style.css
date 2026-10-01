@@ -1,0 +1,1109 @@
+:root{
+  --bg:#F3F6FF;
+  --dark:#223959;
+  --btn-grad:radial-gradient(50% 50% at 50% 50%, #3D4553 0%, #26283A 100%);
+  --mint:#38BFC4;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:var(--bg);
+  font-family:'Montserrat',sans-serif;
+}
+
+.page{
+  max-width:1440px;
+  margin:0 auto;
+  padding:50px 120px;
+  display:flex;
+  flex-direction:column;
+  gap:50px;
+}
+
+.services{
+  display:flex;
+  flex-direction:column;
+  gap:40px;
+}
+
+.services h2{
+  font-weight:600;
+  font-size:32px;
+  line-height:39px;
+  color:var(--dark);
+}
+
+.cards{
+  --k:1;
+  display:flex;
+  align-items:flex-start;
+  gap:24px;
+  overflow-x:auto;
+  scrollbar-width:none;
+  padding-bottom:4px;
+  cursor:grab;
+  scroll-snap-type:x proximity;
+}
+
+.cards::-webkit-scrollbar{
+  display:none;
+}
+
+.cards.dragging{
+  cursor:grabbing;
+  user-select:none;
+}
+
+.card{
+  position:relative;
+  flex:0 0 auto;
+  width:384px;
+  height:384px;
+  zoom:var(--k);
+  scroll-snap-align:start;
+}
+
+.card-media{
+  position:absolute;
+  inset:0;
+  clip-path:path('M20 0H364A20 20 0 0 1 384 20V312A20 20 0 0 1 364 332H158A20 20 0 0 0 138 352V364A20 20 0 0 1 118 384H20A20 20 0 0 1 0 364V20A20 20 0 0 1 20 0Z');
+  background:
+    linear-gradient(180deg, rgba(23,23,23,0) 42.5%, #171717 100%),
+    var(--photo) center / cover no-repeat,
+    radial-gradient(50% 50% at 50% 50%, #3D4553 0%, #26283A 100%);
+}
+
+.card--braces{--photo:url('../images/services/braces.jpg')}
+.card--therapy{--photo:url('../images/services/therapy.jpg')}
+.card--hygiene{--photo:url('../images/services/hygiene.jpg')}
+.card--surgery{--photo:url('../images/services/surgery.jpg')}
+.card--gnathology{--photo:url('../images/services/gnathology.jpg')}
+.card--prosthetics{--photo:url('../images/services/prosthetics.jpg')}
+.card--aesthetic{--photo:url('../images/services/aesthetic.jpg')}
+
+.card-media h3{
+  position:absolute;
+  left:32px;
+  top:265px;
+  color:#FFF;
+  font-weight:600;
+  font-size:32px;
+  line-height:39px;
+}
+
+.card--hygiene .card-media h3,
+.card--aesthetic .card-media h3{
+  top:225px;
+}
+
+.card-actions{
+  position:absolute;
+  left:148px;
+  top:341px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  z-index:1;
+}
+
+.btn-pill{
+  width:184px;
+  height:42px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  padding:10px 32px;
+  border:none;
+  border-radius:20px;
+  cursor:pointer;
+  background:var(--btn-grad);
+  color:#FFF;
+  font:600 16px/140% 'Montserrat',sans-serif;
+}
+
+.btn-arrow{
+  width:42px;
+  height:42px;
+  flex:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:none;
+  border-radius:20px;
+  cursor:pointer;
+  background:var(--btn-grad);
+}
+
+.btn-arrow svg{
+  width:24px;
+  height:12px;
+  transform:rotate(-90deg);
+  display:block;
+}
+
+.btn-pill:hover,
+.btn-arrow:hover{
+  filter:brightness(1.2);
+}
+
+.card--aligners{
+  flex:0 0 auto;
+  width:384px;
+  height:384px;
+}
+
+.card--aligners .card-media{
+  clip-path:path('M30 0H364A20 20 0 0 1 384 20V312A20 20 0 0 1 364 332H158A20 20 0 0 0 138 352V364A20 20 0 0 1 118 384H30A30 30 0 0 1 0 354V30A30 30 0 0 1 30 0Z');
+  background:#1B2338;
+}
+
+.card--aligners .card-photo{
+  position:absolute;
+  inset:0;
+  background:url('../images/services/aligners.jpg') 30% 70% / cover no-repeat;
+  transform:translateY(20px) scale(1.2);
+}
+
+.card--aligners .card-media::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(27, 35, 56, 0) 48.46%, #1B2338 100%);
+}
+
+.card--aligners .card-media h3{
+  position:absolute;
+  left:37px;
+  top:263px;
+  width:176px;
+  height:39px;
+  margin:0;
+  z-index:1;
+  font-family:'Montserrat',sans-serif;
+  font-style:normal;
+  font-weight:600;
+  font-size:32px;
+  line-height:39px;
+  color:#FFFFFF;
+}
+
+.cta-photo.is-missing,
+.cta-mobile-photo.is-missing{
+  display:none;
+}
+
+.card--aligners .card-actions{
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  padding:0px;
+  gap:10px;
+  position:absolute;
+  width:236px;
+  height:42px;
+  left:148px;
+  top:342px;
+  z-index:1;
+}
+
+.card--aligners .btn-pill{
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+  align-items:center;
+  padding:10px 32px;
+  gap:10px;
+  width:184px;
+  height:42px;
+  background:radial-gradient(50% 50% at 50% 50%, #3D4553 0%, #26283A 100%);
+  border-radius:20px;
+  border:none;
+  cursor:pointer;
+  flex:none;
+  font-family:'Montserrat',sans-serif;
+  font-style:normal;
+  font-weight:600;
+  font-size:16px;
+  line-height:140%;
+  color:#FFFFFF;
+}
+
+.card--aligners .btn-arrow{
+  width:42px;
+  height:42px;
+  flex:none;
+  background:radial-gradient(50% 50% at 50% 50%, #3D4553 0%, #26283A 100%);
+  border-radius:20px;
+  border:none;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.card--aligners .btn-arrow svg{
+  width:24px;
+  height:12px;
+  transform:rotate(-90deg);
+  display:block;
+}
+
+.card--aligners .btn-pill:hover,
+.card--aligners .btn-arrow:hover{
+  filter:brightness(1.2);
+}
+
+.card--implantation{
+  flex:0 0 auto;
+  width:384px;
+  height:384px;
+}
+
+.card--implantation .card-media{
+  background:radial-gradient(50% 50% at 50% 50%, #3D4553 0%, #26283A 100%);
+}
+
+.card--implantation .card-photo{
+  position:absolute;
+  inset:0;
+  background:url('../images/services/implantation.jpg') center / cover no-repeat;
+  transform:translateY(-65px) scale(0.7);
+}
+
+.card--implantation .card-media::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(23, 23, 23, 0) 42.5%, #171717 100%);
+}
+
+.card--implantation .card-media h3{
+  position:absolute;
+  left:32px;
+  top:265px;
+  width:236px;
+  height:39px;
+  margin:0;
+  z-index:1;
+  font-family:'Montserrat',sans-serif;
+  font-style:normal;
+  font-weight:600;
+  font-size:32px;
+  line-height:39px;
+  color:#FFFFFF;
+}
+
+.card--implantation .card-actions{
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  padding:0px;
+  gap:10px;
+  position:absolute;
+  width:236px;
+  height:42px;
+  left:148px;
+  top:342px;
+  z-index:1;
+}
+
+.card--implantation .btn-pill{
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+  align-items:center;
+  padding:10px 32px;
+  gap:10px;
+  width:184px;
+  height:42px;
+  background:radial-gradient(50% 50% at 50% 50%, #3D4553 0%, #26283A 100%);
+  border-radius:20px;
+  border:none;
+  cursor:pointer;
+  flex:none;
+  font-family:'Montserrat',sans-serif;
+  font-style:normal;
+  font-weight:600;
+  font-size:16px;
+  line-height:140%;
+  color:#FFFFFF;
+}
+
+.card--implantation .btn-arrow{
+  width:42px;
+  height:42px;
+  flex:none;
+  background:radial-gradient(50% 50% at 50% 50%, #3D4553 0%, #26283A 100%);
+  border-radius:20px;
+  border:none;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.card--implantation .btn-arrow svg{
+  width:24px;
+  height:12px;
+  transform:rotate(-90deg);
+  display:block;
+}
+
+.card--implantation .btn-pill:hover,
+.card--implantation .btn-arrow:hover{
+  filter:brightness(1.2);
+}
+
+.card--braces .card-media{
+  background:radial-gradient(50% 50% at 50% 50%, #3D4553 0%, #26283A 100%);
+}
+
+.card--braces .card-photo{
+  position:absolute;
+  inset:0;
+  background:url('../images/services/braces.jpg') 10% 35% / cover no-repeat;
+  transform:translateY(-65px) scale(1.4);
+}
+
+.card--braces .card-media::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(23, 23, 23, 0) 42.5%, #171717 100%);
+}
+
+.card--braces .card-media h3{
+  width:149px;
+  height:39px;
+  z-index:1;
+}
+
+.card--braces .card-actions{
+  top:342px;
+}
+
+.card--therapy .card-media{
+  background:radial-gradient(50% 50% at 50% 50%, #3D4553 0%, #26283A 100%);
+}
+
+.card--therapy .card-photo{
+  position:absolute;
+  inset:0;
+  background:url('../images/services/therapy.jpg') 95% 35% / 270% no-repeat;
+  transform:translateY(25px);
+}
+
+.card--therapy .card-media::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(23, 23, 23, 0) 42.5%, #171717 100%);
+}
+
+.card--therapy .card-media h3{
+  width:144px;
+  height:39px;
+  z-index:1;
+}
+
+.card--hygiene .card-media{
+  background:radial-gradient(50% 50% at 50% 50%, #3D4553 0%, #26283A 100%);
+}
+
+.card--hygiene .card-photo{
+  position:absolute;
+  inset:0;
+  background:url('../images/services/hygiene.jpg') 50% 60% / cover no-repeat;
+  transform:scale(1.1);
+}
+
+.card--hygiene .card-media::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(23, 23, 23, 0) 42.5%, #171717 100%);
+}
+
+.card--hygiene .card-media h3{
+  width:208px;
+  height:78px;
+  z-index:1;
+}
+
+.card--surgery .card-media{
+  background:radial-gradient(50% 50% at 50% 50%, #3D4553 0%, #26283A 100%);
+}
+
+.card--surgery .card-photo{
+  position:absolute;
+  inset:0;
+  background:url('../images/services/surgery.jpg') 55% 45% / cover no-repeat;
+  filter:brightness(0.92) contrast(1.05);
+  transform:translateY(-40px);
+}
+
+.card--surgery .card-media::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(23, 23, 23, 0) 42.5%, #171717 100%);
+}
+
+.card--surgery .card-media h3{
+  width:166px;
+  height:39px;
+  z-index:1;
+}
+
+.card--prosthetics{
+  flex:0 0 auto;
+  width:384px;
+  height:384px;
+}
+
+.card--prosthetics .card-media{
+  clip-path:path('M30 0H354A30 30 0 0 1 384 30V311A20 20 0 0 1 364 331H158A20 20 0 0 0 138 351V364A20 20 0 0 1 118 384H30A30 30 0 0 1 0 354V30A30 30 0 0 1 30 0Z');
+  background:radial-gradient(50% 50% at 50% 50%, #3D4553 0%, #26283A 100%);
+}
+
+.card--prosthetics .card-photo{
+  position:absolute;
+  inset:0;
+  background:url('../images/services/prosthetics.jpg') 65% 35% / 115% no-repeat;
+  transform:translateY(-40px) scale(0.9);
+}
+
+.card--prosthetics .card-media::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(23, 23, 23, 0) 42.5%, #171717 100%);
+}
+
+.card--prosthetics .card-media h3{
+  width:291px;
+  height:39px;
+  left:32px;
+  top:264px;
+  z-index:1;
+}
+
+.card--prosthetics .card-actions{
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  padding:0px;
+  gap:10px;
+  position:absolute;
+  width:236px;
+  height:42px;
+  left:148px;
+  top:341px;
+  z-index:1;
+}
+
+.card--prosthetics .btn-pill{
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+  align-items:center;
+  padding:10px 32px;
+  gap:10px;
+  width:184px;
+  height:42px;
+  background:radial-gradient(50% 50% at 50% 50%, #3D4553 0%, #26283A 100%);
+  border-radius:20px;
+  border:none;
+  cursor:pointer;
+  flex:none;
+  font-family:'Montserrat',sans-serif;
+  font-style:normal;
+  font-weight:600;
+  font-size:16px;
+  line-height:140%;
+  color:#FFFFFF;
+}
+
+.card--prosthetics .btn-arrow{
+  width:42px;
+  height:42px;
+  flex:none;
+  background:radial-gradient(50% 50% at 50% 50%, #3D4553 0%, #26283A 100%);
+  border-radius:20px;
+  border:none;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.card--prosthetics .btn-arrow svg{
+  width:24px;
+  height:12px;
+  transform:rotate(-90deg);
+  display:block;
+}
+
+.card--prosthetics .btn-pill:hover,
+.card--prosthetics .btn-arrow:hover{
+  filter:brightness(1.2);
+}
+
+.cta-area{
+  position:relative;
+  --k:1;
+}
+
+.cta{
+  position:relative;
+  width:1199px;
+  height:323px;
+  background:radial-gradient(46% 86% at 68% 14%, #233A5A 0%, #3C6AB9 100%);
+  clip-path:path('M-1 -120H1200V323.5H-1Z M0 115L-10 115L-10 335L128 335L128 323Q108 323 93.9 308.9L62.1 277.1Q48 263 48 243L48 207Q48 183 24 159Q0 135 0 115Z M1104 0Q1124 0 1138.1 14.1L1184.9 60.9Q1199 75 1199 95L1210 95L1210 -10L1104 -10Z M0 30A30 30 0 0 1 30 0L0 0Z M1199 293A30 30 0 0 1 1169 323L1199 323Z');
+  zoom:var(--k);
+}
+
+.cta::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  background:
+    radial-gradient(circle 270px at 240px 235px, rgba(255,255,255,.75), rgba(255,255,255,0) 70%),
+    radial-gradient(circle 160px at 215px 285px, rgba(255,255,255,.75), rgba(255,255,255,0) 70%);
+  pointer-events:none;
+}
+
+.cta-photo-wrap{
+  position:absolute;
+  left:0;
+  top:-120px;
+  width:1199px;
+  height:443px;
+  overflow:hidden;
+  pointer-events:none;
+  z-index:1;
+}
+
+.cta-photo{
+  position:absolute;
+  left:32px;
+  top:155px;
+  width:357px;
+  height:354px;
+  object-fit:cover;
+  object-position:top;
+  transform:scale(1.4);
+  transform-origin:50% 100%;
+  pointer-events:none;
+}
+
+.cta-content{
+  position:absolute;
+  left:calc(50% - 721px/2 + 176px);
+  top:calc(50% - 225px/2 + 11.5px);
+  width:721px;
+  height:225px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  padding:0;
+  gap:21px;
+  z-index:2;
+}
+
+.cta-content h3{
+  width:541px;
+  height:54px;
+  margin:0;
+  font-family:'Montserrat',sans-serif;
+  font-style:normal;
+  font-weight:600;
+  font-size:22px;
+  line-height:27px;
+  color:#FFFFFF;
+}
+
+.cta-content p{
+  width:666px;
+  height:30px;
+  margin:0;
+  font-family:'Montserrat',sans-serif;
+  font-style:normal;
+  font-weight:500;
+  font-size:12px;
+  line-height:15px;
+  color:#B4D1FF;
+}
+
+.cta-form{
+  width:721px;
+  height:58px;
+  display:flex;
+  flex-direction:row;
+  align-items:flex-end;
+  padding:0;
+  gap:30px;
+}
+
+.fields{
+  width:490px;
+  height:58px;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  padding:0;
+  gap:10px;
+}
+
+.field{
+  width:240px;
+  height:58px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  padding:0;
+  gap:6px;
+}
+
+.field span{
+  font-family:'Montserrat',sans-serif;
+  font-style:normal;
+  font-weight:500;
+  font-size:10px;
+  line-height:12px;
+  color:#FFFFFF;
+}
+
+.field input{
+  box-sizing:border-box;
+  width:240px;
+  height:40px;
+  padding:10px;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  gap:10px;
+  background:#F4F7FC;
+  border:1px solid #FFFFFF;
+  border-radius:10px;
+  font-family:'Montserrat',sans-serif;
+  font-style:normal;
+  font-weight:500;
+  font-size:12px;
+  line-height:15px;
+  color:#223959;
+  outline:none;
+}
+
+.field input::placeholder{
+  color:#92A1BC;
+}
+
+.field input.error{
+  border-color:#FF6B6B;
+}
+
+.btn-mint{
+  box-sizing:border-box;
+  width:201px;
+  height:44px;
+  padding:12px 20px;
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+  align-items:center;
+  gap:15px;
+  background:#38BFC4;
+  border:1px solid rgba(255, 255, 255, 0.2);
+  border-radius:40px;
+  cursor:pointer;
+  font-family:'Montserrat',sans-serif;
+  font-style:normal;
+  font-weight:600;
+  font-size:13px;
+  line-height:140%;
+  color:#FFFFFF;
+}
+
+.btn-mint:hover{
+  filter:brightness(1.08);
+}
+
+.consent{
+  width:403px;
+  height:20px;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  padding:0;
+  gap:11px;
+  cursor:pointer;
+}
+
+.consent input{
+  display:none;
+}
+
+.consent .box{
+  width:20px;
+  height:20px;
+  flex:none;
+  background:rgba(0, 0, 0, 0.2);
+  border-radius:5px;
+  position:relative;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.consent input:checked + .box::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:5px;
+  height:9px;
+  border:solid #FFFFFF;
+  border-width:0 2px 2px 0;
+  transform:translate(-50%, -60%) rotate(45deg);
+}
+
+.consent > span:last-child{
+  font-family:'Montserrat',sans-serif;
+  font-style:normal;
+  font-weight:500;
+  font-size:12px;
+  line-height:140%;
+  color:#FFFFFF;
+}
+
+.consent a{
+  color:#5FD4D9;
+}
+
+@media (max-width:1280px){
+  .cards{
+    --k:.9;
+    gap:20px;
+  }
+}
+
+@media (max-width:1024px){
+  .cards{
+    --k:.8;
+    gap:18px;
+  }
+}
+
+@media (max-width:768px){
+  .cards{
+    --k:.72;
+    gap:16px;
+  }
+}
+
+@media (max-width:640px){
+  .cards{
+    --k:.64;
+    gap:12px;
+  }
+}
+
+@media (max-width:1279px){
+  .cta-area{--k:.75}
+}
+
+@media (max-width:1023px){
+  .cta-area{--k:.55}
+}
+
+@media (max-width:900px){
+  .cta-area{--k:.6}
+}
+
+@media (max-width:900px){
+  .page{
+    padding:30px 24px;
+    gap:36px;
+  }
+}
+
+@media (max-width:640px){
+  .page{
+    padding:24px 20px;
+    gap:32px;
+  }
+}
+
+.cta-mobile{
+  position:relative;
+  display:none;
+  width:350px;
+  height:789px;
+  margin:0 auto;
+  zoom:var(--mk, 1);
+  clip-path:path('M80 0H320A30 30 0 0 1 350 30V674Q350 688 340.1 697.9L293.9 744.1Q284 754 270 754H154.3A8 8 0 0 0 148.7 756.3L121.9 783.1A20 20 0 0 1 107.7 789H30A30 30 0 0 1 0 759V80Q0 66 9.9 56.1L56.1 9.9Q66 0 80 0Z');
+}
+
+.cta-mobile-bg{
+  position:absolute;
+  inset:0;
+  background:radial-gradient(69.92% 79.67% at 48.69% 12.62%, #233A5A 0%, #3C6AB9 100%);
+}
+
+.cta-mobile-glow{
+  position:absolute;
+  left:40px;
+  top:648px;
+  width:315px;
+  height:315px;
+  background:#C7DFFF;
+  filter:blur(100px);
+  border-radius:50%;
+  pointer-events:none;
+}
+
+.cta-mobile-photo{
+  position:absolute;
+  left:0;
+  top:535px;
+  width:350px;
+  height:254px;
+  object-fit:cover;
+  object-position:top;
+  pointer-events:none;
+}
+
+.cta-mobile-content{
+  position:relative;
+  z-index:2;
+  padding:80px 40px 0;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+.cta-mobile-content h3{
+  width:270px;
+  margin:0;
+  font:600 20px/24px 'Montserrat',sans-serif;
+  color:#FFF;
+}
+
+.cta-mobile-content p{
+  width:270px;
+  margin:0;
+  font:500 14px/140% 'Montserrat',sans-serif;
+  color:#B4D1FF;
+}
+
+.cta-mobile-form{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+.cta-mobile-fields{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.cta-mobile-field{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
+.cta-mobile-field span{
+  font:500 12px/15px 'Montserrat',sans-serif;
+  color:#FFF;
+}
+
+.cta-mobile-field input{
+  box-sizing:border-box;
+  width:270px;
+  height:40px;
+  padding:10px;
+  background:#F4F7FC;
+  border:1px solid #FFF;
+  border-radius:10px;
+  font:500 12px/15px 'Montserrat',sans-serif;
+  color:#223959;
+  outline:none;
+}
+
+.cta-mobile-field input::placeholder{
+  color:#92A1BC;
+}
+
+.cta-mobile-field input.error{
+  border-color:#FF6B6B;
+}
+
+.cta-mobile-btn{
+  box-sizing:border-box;
+  width:270px;
+  height:44px;
+  padding:12px 20px;
+  background:#38BFC4;
+  border:1px solid rgba(255,255,255,0.2);
+  border-radius:40px;
+  cursor:pointer;
+  font:600 14px/140% 'Montserrat',sans-serif;
+  color:#FFF;
+}
+
+.cta-mobile-btn:hover{
+  filter:brightness(1.08);
+}
+
+.cta-mobile-consent{
+  display:flex;
+  align-items:flex-start;
+  gap:11px;
+  cursor:pointer;
+}
+
+.cta-mobile-consent input{
+  display:none;
+}
+
+.cta-mobile-box{
+  width:20px;
+  height:20px;
+  flex:none;
+  background:rgba(255,255,255,0.1);
+  border-radius:5px;
+  position:relative;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.cta-mobile-consent input:checked + .cta-mobile-box::after{
+  content:"";
+  position:absolute;
+  width:9.5px;
+  height:8.73px;
+  border:2px solid #38BFC4;
+  border-width:0 2px 2px 0;
+  transform:rotate(45deg);
+}
+
+.cta-mobile-consent > span:last-child{
+  font:500 12px/140% 'Montserrat',sans-serif;
+  color:#FFF;
+}
+
+.cta-mobile-consent a{
+  color:#5FD4D9;
+}
+
+@media (max-width:767px){
+  .cta-area{
+    display:none;
+  }
+  .cta-mobile{
+    display:block;
+  }
+}
+
+@media (min-width:481px) and (max-width:767px){
+  .cta-mobile{
+    zoom:1.2;
+  }
+}
+
+@media (max-width:480px){
+  .services{
+    gap:16px;
+  }
+  .services h2{
+    font-size:28px;
+    line-height:34px;
+  }
+  .cards{
+    gap:9.62px;
+  }
+  .card{
+    width:154px;
+    height:154px;
+    zoom:1;
+  }
+  .cards .card .card-media{
+    inset:auto;
+    left:0;
+    top:0;
+    width:154px;
+    height:125.1px;
+    clip-path:none;
+    border-radius:8.02px;
+    overflow:hidden;
+    background:
+      var(--photo, none) center / cover no-repeat,
+      radial-gradient(50% 61.55% at 50% 61.55%, #3D4553 0%, #26283A 100%);
+  }
+  .cards .card .card-media::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, rgba(23,23,23,0) 52.32%, #171717 123.1%);
+  }
+  .cards .card .card-photo{
+    transform:none;
+    background-position:center;
+    background-size:cover;
+  }
+  .cards .card .card-media h3{
+    left:12.83px;
+    top:103.28px;
+    width:auto;
+    height:auto;
+    font-weight:600;
+    font-size:12.83px;
+    line-height:16px;
+    color:#FFF;
+    z-index:1;
+  }
+  .cards .card--hygiene .card-media h3,
+  .cards .card--aesthetic .card-media h3{
+    top:87.23px;
+  }
+  .cards .card .card-actions{
+    left:0;
+    top:auto;
+    bottom:0;
+    width:154px;
+    height:25.02px;
+    gap:6px;
+  }
+  .cards .card .btn-pill{
+    flex:1 1 auto;
+    width:auto;
+    min-width:0;
+    height:25.02px;
+    padding:4.01px 12.83px;
+    border-radius:20px;
+    font-weight:500;
+    font-size:12px;
+    line-height:140%;
+  }
+  .cards .card .btn-arrow{
+    flex:0 0 25.02px;
+    width:25.02px;
+    height:25.02px;
+    border-radius:50%;
+  }
+  .cards .card .btn-arrow svg{
+    width:14.3px;
+    height:7.15px;
+  }
+}
